@@ -7,7 +7,6 @@
   --line-dim: #E8EBEF;
 }
 
-/* ===== 기본 ===== */
 * {
   box-sizing: border-box;
 }
@@ -27,13 +26,11 @@ body {
   color: var(--text);
 }
 
-/* overflow 수정 → 세로는 보이게 */
 .wrap {
   position: relative;
   overflow-x: hidden;
 }
 
-/* ===== Splash (홈에서만) ===== */
 .loader {
   position: fixed;
   inset: 0;
@@ -179,7 +176,7 @@ header {
   text-decoration: none;
   line-height: 1;
   color: var(--text);
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 500;
   letter-spacing: .02em;
 }
@@ -225,16 +222,16 @@ header {
 
 .hero h1 {
   grid-column: 1 / -1;
-  font-size: 100px;
+  font-size: 105px;
   font-weight: 300;
   letter-spacing: -.5px;
   line-height: 1.2;
-  margin: 0 0 24px;
+  margin: 30px 0 24px;
 }
 
 .hero h2 {
-  font-size: 25px;
-  color: #666;
+  font-size: 30px;
+  color: #2c2c2c;
   letter-spacing: .3px;
   font-weight: 500;
   line-height: 1.4;
@@ -276,15 +273,16 @@ header {
     justify-self: start;
   }
 }
+
 .scroll-indicator {
-  position: fixed;
-  bottom: 20px;
+  position: absolute;
   left: 50%;
+  bottom: 7vh;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 108px;
+  height: 128px;
   pointer-events: none;
   z-index: 5;
 }
@@ -292,29 +290,19 @@ header {
 .scroll-indicator .line {
   width: 2px;
   flex-grow: 1;
-
-  background:
-    repeating-linear-gradient(
-      to bottom,
+  background: repeating-linear-gradient(to bottom,
       var(--primary),
       var(--primary) 4px,
       transparent 4px,
-      transparent 8px
-    );
-
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0,
-    rgba(0, 0, 0, 0.7) 24%,
-    rgba(0, 0, 0, 1) 100%
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0,
-    rgba(0, 0, 0, 0.7) 24%,
-    rgba(0, 0, 0, 1) 100%
-  );
-
+      transparent 8px);
+  -webkit-mask-image: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0) 0,
+      rgba(0, 0, 0, 0.7) 24%,
+      rgba(0, 0, 0, 1) 100%);
+  mask-image: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0) 0,
+      rgba(0, 0, 0, 0.7) 24%,
+      rgba(0, 0, 0, 1) 100%);
   opacity: 0.9;
 }
 

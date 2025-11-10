@@ -59,7 +59,7 @@ export default function Home({ duration = 2600 }) {
                 <Header />
                 <section className="hero" aria-label="메인 히어로">
                     <h1>ANHA STUDIO<br />Season 2025 Collection</h1>
-                    <h2>Every line of <span>Code</span> carries intention.</h2>
+                    <h2>Every line of <span>Code</span> carries intention</h2>
                     <h2>Crafting Experience Through <span>Code</span></h2>
                 </section>
             </main>
@@ -68,7 +68,18 @@ export default function Home({ duration = 2600 }) {
                 <div className="line"></div>
                 <div className="dot"></div>
             </div>
-
+            <section>
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br>
+            </section>
         </div>
     );
 }
