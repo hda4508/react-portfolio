@@ -1636,7 +1636,7 @@ export default function Home() {
                   <li>2025.11&nbsp;&nbsp; 졸업작품 학과 우수상</li>
                   <li>2025.03&nbsp;&nbsp; 2학년 2학기 부반대표</li>
                   <li>2024.12&nbsp;&nbsp; 3D 디지털 연합 PT</li>
-                  <li>1학년 2학기 반대표</li>
+                  <li>2024.09&nbsp;&nbsp; 1학년 2학기 반대표</li>
                 </ul>
               </div>
             </div>
