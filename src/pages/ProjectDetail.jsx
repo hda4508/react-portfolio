@@ -97,7 +97,7 @@ export default function ProjectDetail() {
                                 className="project-link-btn"
                                 download={project.pdfUrl ? "" : undefined}
                             >
-                                <span className="arrow-icon">➜</span>
+                                <button className="project-code-btn">Web link</button>
                             </a>
                         ) : null}
                     </div>
