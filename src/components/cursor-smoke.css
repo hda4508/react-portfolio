@@ -1,0 +1,45 @@
+/* === smoke container === */
+.smoke {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* === 아주 연한 연기 점 === */
+.circle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+
+  /* 🔥 훨씬 더 연한 안개 그라디언트 */
+  background: radial-gradient(
+    circle,
+    rgba(215, 243, 246, 0.18) 0%,   /* 중심 더 연하게 */
+    rgba(215, 243, 246, 0.10) 25%,  /* 중간층 더 연함 */
+    rgba(215, 243, 246, 0.02) 55%   /* 바깥 거의 안 보임 */
+  );
+
+  opacity: 0.28;        /* 🔽 기존보다 더 연함 */
+  filter: blur(2px);    /* 살짝만 퍼짐 */
+
+  animation: sizeup 1s ease-out forwards;
+}
+
+/* === 점이 퍼졌다 사라지는 모션 === */
+@keyframes sizeup {
+  0% {
+    scale: 0;
+    opacity: 0.28;        /* 시작도 엄청 연하게 */
+    transform: translateY(0);
+  }
+  100% {
+    scale: 10;            /* 🔽 12 → 10 : 더 부드러운 퍼짐 */
+    opacity: 0;           /* 마지막엔 완전 사라짐 */
+    transform: translateY(-4px); /* 위로 살짝만 이동 */
+  }
+}

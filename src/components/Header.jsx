@@ -1,15 +1,39 @@
-import { Link, useLocation } from "react-router-dom";
+import React, { useEffect } from "react";
 
 export default function Header() {
-    const { pathname } = useLocation();
-    const is = (p) => (pathname === p ? "active" : "");
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const header = document.querySelector("header");
+            if (window.scrollY > 20) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    const scrollTo = (id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.scrollIntoView({ behavior: "smooth" });
+    };
 
     return (
         <header>
             <nav className="nav" aria-label="Primary">
-                <Link to="/" className={`brand ${is("/")}`}>ANHA</Link>
-                <Link to="/portfolio" className={`center ${is("/portfolio")}`}>PORTFOLIO</Link>
-                <Link to="/about" className={`right ${is("/about")}`}>ABOUT</Link>
+                <button onClick={() => scrollTo("hero-section")} className="brand">KOO</button>
+
+                <div className="nav-center">
+                    <button onClick={() => scrollTo("profile-section")} className="center">ABOUT</button>
+                    <button onClick={() => scrollTo("skills-section")} className="center">SKILLS</button>
+                    <button onClick={() => scrollTo("work-section")} className="center">PROJECT</button>
+                </div>
+
+                <button onClick={() => scrollTo("hero-section")} className="right">2025</button>
             </nav>
         </header>
     );

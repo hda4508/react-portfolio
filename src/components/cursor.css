@@ -1,0 +1,57 @@
+/* 옛날 동그라미 커서 죽이기 */
+.cursor-orb {
+  display: none !important;
+}
+
+/* 안개 컨테이너 */
+.mist-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* 안개 조각 */
+.mist-chunk {
+  position: absolute;
+
+  /* 안개 범위 (가로로 길게 → 자취 느낌) */
+  width: 620px;
+  height: 260px;
+  border-radius: 50%;
+
+  /* 많이 퍼지게 */
+  filter: blur(55px);
+  mix-blend-mode: screen;
+
+  /* 전체 강도 (안개 농도) */
+  opacity: 0.5;
+
+  /* 🔥 중심이 아니라 “중간 띠”가 제일 진하게 → 동그라미 느낌 제거
+     그리고 at 30% 50% 로 중심을 한쪽으로 치워서
+     마우스 진행 방향 쪽이 옅고, 뒤쪽이 조금 더 진한 흐름처럼 보이게 */
+  background: radial-gradient(
+    ellipse at 30% 50%,
+    rgba(230, 247, 249, 0.0) 0%,     /* 완전 중앙은 비우기 */
+    rgba(220, 236, 242, 0.18) 30%,   /* 서서히 나타나고 */
+    rgba(190, 210, 222, 0.32) 55%,   /* 이 띠가 가장 진함 → 안개 자취 */
+    rgba(140, 160, 176, 0.18) 75%,   /* 외곽은 다시 옅어짐 */
+    rgba(0, 0, 0, 0) 100%
+  );
+
+  animation: mistFlow 14s ease-in-out infinite alternate;
+}
+
+/* 레이어별로 살짝씩 다른 크기/농도 = 겹쳐진 안개 */
+.chunk-0 { opacity: 0.55; transform: scale(1.1); }
+.chunk-1 { opacity: 0.45; transform: scale(1.3); }
+.chunk-2 { opacity: 0.38; transform: scale(1.6); }
+.chunk-3 { opacity: 0.3;  transform: scale(1.9); }
+.chunk-4 { opacity: 0.22; transform: scale(2.2); }
+
+/* 안개가 안에서 살짝살짝 흔들리는 모션 */
+@keyframes mistFlow {
+  0%   { translate: 0px 0px;   scale: 1; }
+  50%  { translate: 24px -18px; scale: 1.05; }
+  100% { translate: -18px 16px; scale: 1.0; }
+}
